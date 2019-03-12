@@ -1,0 +1,254 @@
+﻿<Window x:Class="AngularSimulator.DesignWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AngularSimulator"
+		Icon="images/아이콘.ico"
+        mc:Ignorable="d"
+        Title="DesignWindow" Height="900" Width="1600" WindowStyle="None" AllowsTransparency="True" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/MainImg.jpg" Opacity="0.5"/>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="48" Margin="0,0,0,0" VerticalAlignment="Top" Width="1600" MouseLeftButtonDown="Grid_MouseLeftButtonDown" Background="Black" Grid.ColumnSpan="2">
+            <Label x:Name="Title" Content="무너져욧" HorizontalAlignment="Left"  Height="40" Margin="10,10,0,0" VerticalAlignment="Center" Width="250" Foreground="White" FontSize="20" FontFamily="NanumBarunGothic" />
+        </Grid>
+        <Button x:Name="ExitBtn" HorizontalAlignment="Left" Height="48" Margin="605.283,0,0,0" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ExitBtn_Click" MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" ToolTip="exit"  ToolTipOpening="ExitBtn_ToolTipOpening" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="images/GUI/ExitButton.png"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Image Height="500" Width="500" Source="images/body.png" Margin="768,365,332,35" Grid.ColumnSpan="2"/>
+        <Image Name="wheelImg" Height="600" Width="600" Source="images/wheel.png" Margin="718,150,282,150" Grid.ColumnSpan="2"/>
+        <Grid Name="wheelZone" Height="600" Width="600" Margin="718,150,282,150" Grid.ColumnSpan="2"/>
+        <Button x:Name="SettingBtn" Content="Button" HorizontalAlignment="Left" Height="94" Margin="557.283,806,0,0" VerticalAlignment="Top" Width="93" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" ToolTip="set"  ToolTipOpening="SettingBtn_ToolTipOpening" Click="SettingBtn_Click" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="images/GUI/Setting.png"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Popup HorizontalAlignment="Center"
+               Name="MyMessage2"
+               Placement="Relative"
+               VerticalOffset="47"
+               HorizontalOffset="800" Margin="800,0,149.717,0"
+        >
+            <Grid  Width="Auto" Height="Auto" Background="White" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="10" Name="Message2" FontSize="30" Content="경고! : " Grid.Row ="0" Grid.Column="0"></Label>
+                <Button x:Name="ExitBtn3" Margin="10" HorizontalAlignment="Left" Height="48" Grid.Column="1" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="PopClose3_Click" MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" ToolTip="닫기"  >
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/GUI/ExitButton.png"/>
+                    </Button.Background>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Popup>
+        <Popup HorizontalAlignment="Center"
+               Name="MyMessage"
+               Placement="Relative"
+               VerticalOffset="47"
+               HorizontalOffset="800" Margin="800,0,149.717,0"
+        >
+            <Grid  Width="Auto" Height="Auto" Background="White" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="10" Name="Message" FontSize="30" Content="경고! : " Grid.Row ="0" Grid.Column="0"></Label>
+                <Button x:Name="ExitBtn2" Margin="10" HorizontalAlignment="Left" Height="48" Grid.Column="1" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="PopClose2_Click" MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" ToolTip="닫기"  >
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/GUI/ExitButton.png"/>
+                    </Button.Background>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Popup>
+        <Popup Name="MyPopup"
+
+               Placement="Mouse"
+
+               HorizontalOffset="-100"
+
+               VerticalOffset="-100"
+
+               AllowsTransparency="True" Grid.ColumnSpan="2">
+
+            <Grid Background="White"  Height="302" Width="398">
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,0,0"/>
+                <Grid Grid.Row="0" Margin="0,0,4,22">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.RowSpan="4" >
+                        <Label Content="D-In" VerticalContentAlignment="Center" FontSize="14" Margin="0,8,0,243"/>
+                        <ComboBox x:Name="cbComPort" Width="85" Margin="0,11,0,0"  FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="22" VerticalAlignment="Top"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" TextBlock.FontSize="14" Margin="0,0,22,0">
+                        <Label Content="D-Out" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top" Width="52" Margin="0,4,0,0"/>
+                        <ComboBox Name="cbComPort2" Width="76" Margin="0,11,0,246"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+
+                    <Button Name="btnDinOpen" Grid.Column="0" Content="Open"  Margin="140,5,4,238"  FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnDinOpen_Click"/>
+
+                    <Button Name="btnDoutOpen" Grid.Column="1" Content="Open"  Margin="143,3,6,240"  FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnDoutOpen_Click"/>
+                </Grid>
+                <Grid VerticalAlignment="Center" Margin="0,139,4,163">
+                    <Label Content="센서 사용 개수" HorizontalAlignment="Left" Width="180" Height="30" Margin="7,-80,0,0" FontSize="16" VerticalAlignment="Top"/>
+                    <TextBox Name="tbSensorID"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" Margin="242,-80,0,0" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="2"/>
+                </Grid>
+
+                <Grid VerticalAlignment="Center" Margin="0,139,4,163">
+                    <Label Content="측정 주기(단위 : ms)" HorizontalAlignment="Left" Width="180" Height="30" Margin="7,-40,0,0" FontSize="16" VerticalAlignment="Top"/>
+                    <TextBox Name="tbSendCycle"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" Margin="243,-41,0,0" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="1000" PreviewKeyDown="TbSendCycle_PreviewKeyDown"/>
+                </Grid>
+
+                <Grid VerticalAlignment="Center" Margin="0,124,4,148">
+                    <!--<TextBox Name="tbWheelAlarm"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" Margin="242,14,0,-14" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="1000"/>-->
+                    <Label Content="관람차 중앙축 위험값 입력" HorizontalAlignment="Left" Width="208" Height="30" Margin="10,14,0,-14" FontSize="16" VerticalAlignment="Top"/>
+                    <TextBox Name="tbWheelAlarmX_"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30" Margin="220,15,0,-55" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="1000"/>
+                    <Label Content="~" HorizontalAlignment="Left" Height="30" Margin="280,15,0,-55" FontSize="16" VerticalAlignment="Top"/>
+                    <TextBox Name="tbWheelAlarmX"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30" Margin="300,15,0,-55" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="1000"/>
+
+                </Grid>
+
+                <Grid VerticalAlignment="Center" Margin="0,124,4,148">
+                    <Label Content="관람집 위험값 입력" HorizontalAlignment="Left" Width="180" Height="30" Margin="6,55,0,-55" FontSize="16" VerticalAlignment="Top"/>
+                    <!--<Label Content="X" HorizontalAlignment="Left" Height="30" Margin="200,54,0,-54" FontSize="16" VerticalAlignment="Top"/>-->
+                    <TextBox Name="tbSeatAlarmX_"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30" Margin="220,55,0,-55" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="1000"/>
+                    <Label Content="~" HorizontalAlignment="Left" Height="30" Margin="280,55,0,-55" FontSize="16" VerticalAlignment="Top"/>
+                    <TextBox Name="tbSeatAlarmX"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="30" Margin="300,55,0,-55" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="1000"/>
+                </Grid>
+
+                <Grid VerticalAlignment="Center" Margin="0,124,4,148">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="142*"/>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="43*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="관람차 중앙축 각도 보정값" HorizontalAlignment="Left" Width="208" Height="30" Margin="6,93,0,-93" FontSize="16" VerticalAlignment="Top"/>
+                    <TextBox Name="tbAngleCorrection"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="63" Height="30" Margin="219,92,0,-92" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="0"/>
+                    <Button Name="btnAngleUpdate" Content="보정하기" Width="75" FontSize="16" HorizontalAlignment="Right" Margin="0,92,32,-92" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnAngleUpdate_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
+                    <Button x:Name="PopClose" Content="닫기" Margin="146,136,36,-136" Click="PopClose_Click"></Button>
+                </Grid>
+
+            </Grid>
+
+        </Popup>
+
+        <DataGrid Name="logView" Margin="0,48,545.717,0" CanUserAddRows="false"  Style="{DynamicResource DGHeaderStyle}" BorderBrush="Black" />
+    </Grid>
+    <Window.Resources>
+        <Style x:Key="PopupContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+
+                        <Grid Width="Auto" Height="Auto" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderThickness="2" CornerRadius="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="2">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush Color="Gray"/>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <SolidColorBrush Color="White"/>
+                                </Border.Background>
+                            </Border>
+
+                            <StackPanel Grid.Row="0">
+                                <Label Foreground="Blue" Content="Popup_Title"/>
+                            </StackPanel>
+
+                            <GroupBox Grid.Row="1" Header="Popup example content">
+                                <StackPanel>
+                                    <ContentPresenter ></ContentPresenter>
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <Style x:Key="DGHeaderStyle" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource DGCHeaderStyle}"/>
+        </Style>
+
+        <Style x:Key="DGCHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+</Window>
